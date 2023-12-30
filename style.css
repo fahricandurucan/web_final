@@ -1,0 +1,611 @@
+/* General styling for the entire page */
+body {
+    align-items: center;
+    margin: 24px;
+    padding: 16px;
+    font-family: 'Montserrat', sans-serif;
+    background: #e3e9f7;
+    font-size: 16px;
+}
+
+/* Navigation styles */
+nav ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #262626;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+    position: relative;
+    padding: 25px 0 25px 38px;
+}
+
+nav ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 0%;
+    height: 100%;
+    background: #e3e9f7;
+    border-radius: 40px 0px 0px 40px;
+    z-index: -1;
+    transition: all 300ms ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #2b2626;
+}
+
+nav ul li a:hover:before {
+    width: 95%;
+}
+
+/* Wrapper and section styles */
+.wrapper {
+    margin-left: 260px;
+}
+
+.section {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Box area styles */
+.box-area h2 {
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+.box-area p {
+    line-height: 2;
+}
+
+.box-area {
+    width: 75%;
+}
+
+/* Logo styles */
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 25px auto;
+}
+
+.logo img {
+    width: 100%;
+}
+
+/* Form container styles */
+.form-container {
+    width: 850px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 6px;
+}
+
+.form-container label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #2b2626;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: auto;
+}
+
+.form-container button:hover {
+    background-color: #444;
+}
+
+
+/* Student table styles */
+.studentTable {
+    border-collapse: collapse;
+    margin: auto auto;
+    font-size: 0.9em;
+    width: 80%px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    align-items: center;
+}
+
+.studentTable thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.studentTable th,
+.studentTable td {
+    padding: 10px 12px;
+}
+
+.studentTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.studentTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.studentTable tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.studentTable tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+/* Lecture table styles */
+.lectureTable {
+    border-collapse: collapse;
+    margin: auto auto;
+    font-size: 0.9em;
+    width: 800px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    text-align: center;
+}
+
+.lectureTable thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.lectureTable th,
+.lectureTable td {
+    padding: 10px 12px;
+    text-align: center;
+}
+
+.lectureTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.lectureTable tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.lectureTable tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.lectureTable tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.studentTable tbody tr:hover,
+.lectureTable tbody tr:hover {
+    background-color: #b6b6b6;
+    transition: background-color 0.3s ease;
+}
+
+.studentTable tbody tr.active-row,
+.lectureTable tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+    background-color: #f0f8ff;
+}
+
+/* Custom select box styles */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #5c6664;
+    background-image: none;
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #5c6664;
+    overflow: hidden;
+    border-radius: .25em;
+    margin: 8px;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #2b2e2e;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+}
+
+.select:hover::after {
+    color: #23b499;
+}
+
+/* Search input styles */
+#searchStudent,
+#searchLecture {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#gradeScale {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#searchStudent:hover,
+#searchLecture:hover {
+    background-color: #e0e0e0;
+}
+
+#searchStudent:hover,
+#searchLecture:hover,
+#gradeScale:hover,
+#gradeScale:focus,
+#gradeScale option:hover {
+    transition: background-color 0.3s ease;
+}
+
+/* Apply styles to the wrapper(failed and succeded student part) */
+#studentHomeWrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    /* Adjust margin as needed */
+}
+
+#failedStudentHome {
+    flex: 1;
+    background-color: #FFB6C1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+#succededStudentHome {
+    width: 250px;
+    flex: 1;
+    background-color: #98FB98;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+#studentGpaContainer {
+    flex: 1;
+    background-color: #f7ff84;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+#studentGpaContainer:hover {
+    background-color: #fcff3d;
+    transform: scale(1.05);
+}
+
+#failedStudentHome:hover {
+    background-color: #fa5954;
+    transform: scale(1.05);
+}
+
+#succededStudentHome:hover {
+    background-color: #3ef5af;
+    transform: scale(1.05);
+}
+
+/* Update Button in both tables */
+.lectureTable .update-button,
+.studentTable .update-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.lectureTable .update-button:hover,
+.studentTable .update-button:hover {
+    background-color: #45a049;
+}
+
+/* Delete Button in both tables */
+.lectureTable .delete-button,
+.studentTable .delete-button {
+    background-color: #f44336;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.lectureTable .delete-button:hover,
+.studentTable .delete-button:hover {
+    background-color: #d32f2f;
+}
+
+/* part of update student */
+
+.updateStudentContainer,
+.updateLectureContainer {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* Center the content */
+}
+
+.updateStudentContainer h2,
+.updateLectureContainer h2 {
+    color: #2b2626;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.updateStudentContainer label,
+.updateLectureContainer label {
+    display: block;
+    margin: 10px 0;
+    color: #555;
+}
+
+.updateStudentContainer input,
+.updateLectureContainer input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.updateStudentContainer button#confirmButton,
+.updateLectureContainer button#confirmButton {
+    background-color: #2b2626;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.updateStudentContainer button#confirmButton:hover,
+.updateLectureContainer button#confirmButton:hover {
+    background-color: #444;
+}
+
+.updateLectureContainer,
+.updateStudentContainer {
+    position: relative;
+    background-color: rgb(82, 82, 82);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.updateLectureContainer {
+    height: 400px;
+    width: 380px;
+}
+
+.updateStudentContainer {
+    height: 500px;
+    width: 420px;
+}
+
+
+.updateLectureContainer::after,
+.updateStudentContainer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    background: linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+
+.updateLectureContainer::after {
+    height: 400px;
+    width: 380px;
+}
+
+.updateStudentContainer::after {
+    height: 500px;
+    width: 420px;
+}
+
+.updateLectureContainer form,
+.updateStudentContainer form {
+    position: absolute;
+    inset: 2px;
+    z-index: 10;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin: 2px;
+}
+
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    /* 50% {
+        transform: rotate(180deg);
+    } */
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+/* home part */
+.welcome-container {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.welcome-container:hover {
+    background-color: #e0e0e0;
+}
+
+.welcome-heading {
+    color: #2b2626;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.welcome-text {
+    color: #555;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.feature-highlights {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.feature-highlights h3 {
+    color: #2b2626;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.feature:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.feature i {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #3498db;
+}
+
+.feature h3 {
+    color: #2b2626;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    color: #555;
+}
+
+.feature i {
+    font-size: 2em;
+    margin-bottom: 10px;
+}

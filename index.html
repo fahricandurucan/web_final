@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Course Management System</title>
+    <!-- Include external stylesheets and fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <li class="logo"><img alt="" src="./images/logo.png"></li>
+            <li>
+                <a href="#" onclick="changeContent('Homepage')"><i class="fa fa-home"></i> home</a>
+            </li>
+            <li>
+                <a href="#" onclick="changeContent('Students')"><i class="fa fa-users"></i> students</a>
+            </li>
+            <li>
+                <a href="#" onclick="changeContent('Lectures')"><i class="fa fa-book"></i> lectures</a>
+            </li>
+            <li>
+                <a href="#" onclick="changeContent('Extras')"><i class="fa fa-plus-circle"></i> extras</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="wrapper">
+        <div class="section">
+            <div class="box-area" id="contentArea">
+                <h2 style="color: #2b2626">Homepage</h2>
+            </div>
+            <!-- Combine failedStudentHome and succededStudentHome in a wrapper div -->
+            <div id="studentHomeWrapper" style="display: flex; justify-content: space-between;">
+                <div id="failedStudentHome" style="display: none;">
+                    <h2>Failed Students</h2>
+                    <div>
+                        <label for="courseSelectHome">Select Course:</label>
+                        <select id="courseSelectHome"></select>
+                    </div>
+                    <div id="failedStudentsList"></div>
+
+                </div>
+                <div id="succededStudentHome" style="display: none;">
+                    <h2>Passed Students</h2>
+                    <div>
+                        <label for="courseSelectHome2">Select Course:</label>
+                        <select id="courseSelectHome2"></select>
+                    </div>
+                    <div id="succededStudentsList"></div>
+                </div>
+
+                <div id="studentGpaContainer" style="display: none;">
+                    <h2>Student GPA</h2>
+                    <div>
+                        <label for="selectStudentHome">Select Student:</label>
+                        <select id="selectStudentHome"></select>
+                    </div>
+                    <div id="studentListHome"></div>
+                </div>
+            </div>
+
+            <!-- Form for adding a new student -->
+            <div id="addStudentFormContainer" class="box2" style="display: none;">
+                <h1 style="color: #2b2626; font-size: 3em;">Add Student</h1>
+                <div>
+                    <form id="addStudentForm" class="form-container">
+                        <div class="select">
+                            <select id="studentLectures" name="format">
+                                <option selected disabled>Enrolled Courses</option>
+                                <!-- This section will be populated dynamically using JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentID">Student ID:</label>
+                            <input type="text" id="studentID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentName">Student Name:</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentSurname">Student Surname:</label>
+                            <input type="text" id="studentSurname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade1">Midterm:</label>
+                            <input type="text" id="grade1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade2">Final:</label>
+                            <input type="text" id="grade2" required>
+                        </div>
+                        <button type="button" id="addStudentButton">Add Student</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Container for displaying the student table -->
+            <div id="studentTableContainer" style="display: none;">
+                <h1 style="color: #2b2626; font-size: 3em;">Student List</h1>
+                <div>
+                    <label for="searchStudent">Search Student:</label>
+                    <input type="text" id="searchStudent" oninput="searchStudents()" placeholder="Student Name...">
+                    <label for="searchLecture">Search Course:</label>
+                    <input type="text" id="searchLecture" oninput="searchStudentsByLecture()"
+                        placeholder="Lecture Code...">
+                    <label for="gradeScale">Select Grade Scale:</label>
+                    <select id="gradeScale" onchange="printLetterGrade()">
+                        <option id="option1"><span style="font-style: italic;">default</span></option>
+                        <option id="option2" value="10">10-Point Scale</option>
+                        <option id="option3" value="7">7-Point Scale</option>
+                    </select>
+                </div>
+                <table class="studentTable" style="border : 1">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Student Surname</th>
+                            <th>Midterm</th>
+                            <th>Final</th>
+                            <th>Enrolled Courses</th>
+                            <th>Letter Grade</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentList">
+                        <!-- Student list will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Container for displaying the lecture table -->
+            <div id="lectureTableHeader">
+                <table class="lectureTable" style="border: 1; display: none;">
+                    <thead>
+                        <tr>
+                            <th>Lecture Code</th>
+                            <th>Lecture Name</th>
+                            <th>Lecture Credit</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lectureList">
+                    </tbody>
+                </table>
+            </div>
+            <!-- Form for adding a new lecture -->
+            <div id="addLectureFormContainer" style="display: none;">
+                <h1 style="color: #2b2626; font-size: 3em;">Adding Lecture</h1>
+                <form id="addLectureForm" class="form-container">
+                    <div class="form-group">
+                        <label for="lectureCode">Lecture Code:</label>
+                        <input type="text" id="lectureCode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lectureName">Lecture Name:</label>
+                        <input type="text" id="lectureName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lectureCredit">Lecture Credit:</label>
+                        <input type="text" id="lectureCredit" required>
+                    </div>
+                    <button type="button" id="addLectureButton">Add Lecture</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-- Include external JavaScript file -->
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
