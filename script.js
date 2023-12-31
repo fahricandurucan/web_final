@@ -85,6 +85,16 @@ let lectures = []; // my lecture list
 document.addEventListener('DOMContentLoaded', function () {
     //Pull data from local storage first when page loads
     initializeFromLocalStorage();
+
+    //automatic course and student adding function
+    if (lectures.length === 0 && students.length === 0) {
+        addLectureAuto();
+        addStudentAuto();
+    }
+    else {
+        // console.log(lectures.length);
+        // console.log(students.length);
+    }
     // first page is homepage
     changeContent('Homepage');
 });
@@ -946,5 +956,327 @@ function confirmUpdateForLecture(lectureCode) {
 
     changeContent("Lectures");
     updateLectureList2();
+}
+
+//automatic student adding function
+function addStudentAuto() {
+    var studentsAuto = [
+        {
+            id: "200709010",
+            name: "Ahmet",
+            surname: "Yılmaz",
+            grade1: 40,
+            grade2: 45,
+            lectures: "CENG1007",
+            letterGrade: "F"
+        },
+        {
+            id: "200709011",
+            name: "Ayşe",
+            surname: "Kaya",
+            grade1: 75,
+            grade2: 88,
+            lectures: "MATH2001",
+            letterGrade: "B"
+        },
+        {
+            id: "200709012",
+            name: "Mustafa",
+            surname: "Demir",
+            grade1: 92,
+            grade2: 87,
+            lectures: "PHYS1003",
+            letterGrade: "A"
+        },
+        {
+            id: "200709013",
+            name: "Emily",
+            surname: "Williams",
+            grade1: 80,
+            grade2: 95,
+            lectures: "CHEM1002",
+            letterGrade: "A"
+        },
+        {
+            id: "200709014",
+            name: "David",
+            surname: "Brown",
+            grade1: 78,
+            grade2: 88,
+            lectures: "ENGL1010",
+            letterGrade: "B"
+        },
+        {
+            id: "200709015",
+            name: "Sophia",
+            surname: "Miller",
+            grade1: 95,
+            grade2: 92,
+            lectures: "HIST1201",
+            letterGrade: "A"
+        },
+        {
+            id: "200709016",
+            name: "Daniel",
+            surname: "Wilson",
+            grade1: 88,
+            grade2: 85,
+            lectures: "PSYC1101",
+            letterGrade: "A"
+        },
+        {
+            id: "200709017",
+            name: "Olivia",
+            surname: "Moore",
+            grade1: 80,
+            grade2: 78,
+            lectures: "ARTS1303",
+            letterGrade: "B"
+        },
+        {
+            id: "200709018",
+            name: "Christopher",
+            surname: "Taylor",
+            grade1: 92,
+            grade2: 90,
+            lectures: "BIOL2101",
+            letterGrade: "A"
+        },
+        {
+            id: "200709019",
+            name: "Emma",
+            surname: "Anderson",
+            grade1: 85,
+            grade2: 88,
+            lectures: "ECON2202",
+            letterGrade: "B"
+        },
+        {
+            id: "200709020",
+            name: "Mehmet",
+            surname: "Koç",
+            grade1: 85,
+            grade2: 88,
+            lectures: "MUSC1404",
+            letterGrade: "B"
+        },
+        {
+            id: "200709021",
+            name: "Zeynep",
+            surname: "Arslan",
+            grade1: 85,
+            grade2: 88,
+            lectures: "SOCY2305",
+            letterGrade: "B"
+        },
+        {
+            id: "200709022",
+            name: "Emre",
+            surname: "Şahin",
+            grade1: 85,
+            grade2: 88,
+            lectures: "SOCY2305",
+            letterGrade: "B"
+        },
+        {
+            id: "200709023",
+            name: "Ece",
+            surname: "Koç",
+            grade1: 80,
+            grade2: 92,
+            lectures: "MUSC1404",
+            letterGrade: "A"
+        },
+        {
+            id: "200709024",
+            name: "Oğuz",
+            surname: "Yıldırım",
+            grade1: 88,
+            grade2: 85,
+            lectures: "ECON2202",
+            letterGrade: "B"
+        },
+        {
+            id: "200709025",
+            name: "Büşra",
+            surname: "Güler",
+            grade1: 78,
+            grade2: 90,
+            lectures: "BIOL2101",
+            letterGrade: "A"
+        },
+        {
+            id: "200709025",
+            name: "Can",
+            surname: "Tuncel",
+            grade1: 95,
+            grade2: 88,
+            lectures: "ARTS1303",
+            letterGrade: "A"
+        },
+        {
+            id: "200709026",
+            name: "Zehra",
+            surname: "Yılmaz",
+            grade1: 90,
+            grade2: 78,
+            lectures: "PSYC1101",
+            letterGrade: "B"
+        },
+        {
+            id: "200709027",
+            name: "Kerem",
+            surname: "Kurtuluş",
+            grade1: 82,
+            grade2: 92,
+            lectures: "CENG1007",
+            letterGrade: "A"
+        },
+        {
+            id: "200709028",
+            name: "İrem",
+            surname: "Aydos",
+            grade1: 88,
+            grade2: 85,
+            lectures: "HIST1201",
+            letterGrade: "B"
+        },
+        {
+            id: "200709029",
+            name: "Serkan",
+            surname: "Kurt",
+            grade1: 75,
+            grade2: 94,
+            lectures: "ENGL1010",
+            letterGrade: "A"
+        },
+        {
+            id: "200709030",
+            name: "Eylül",
+            surname: "Şahbaz",
+            grade1: 92,
+            grade2: 80,
+            lectures: "CHEM1002",
+            letterGrade: "A"
+        },
+        {
+            id: "200709031",
+            name: "Mert",
+            surname: "Acar",
+            grade1: 85,
+            grade2: 78,
+            lectures: "PHYS1003",
+            letterGrade: "B"
+        },
+        {
+            id: "200709032",
+            name: "Nazlı",
+            surname: "Özdemir",
+            grade1: 94,
+            grade2: 88,
+            lectures: "MATH2001",
+            letterGrade: "A"
+        },
+    ];
+
+    if (students.length === 0) {
+        // part off adding course
+        // Döngü ile her bir ders için Course nesnesi oluşturup diziye ekleme
+        for (var i = 0; i < studentsAuto.length; i++) {
+            var student = studentsAuto[i];
+            var newStudent = new Student(student.id, student.name, student.surname, student.grade1, student.grade2, student.lectures, student.letterGrade);
+            // Add student to list
+            students.push(newStudent);
+            // Add student to local storage
+            addStudentToLocalStorage(newStudent);
+        }
+    }
+    else {
+        return;
+    }
+}
+//automatic course adding function
+function addLectureAuto() {
+    var coursesAuto = [
+        {
+            code: "CENG1007",
+            credit: "6",
+            name: "Intro to Computer Science"
+        },
+        {
+            code: "MATH2001",
+            credit: "5",
+            name: "Calculus I"
+        },
+        {
+            code: "PHYS1003",
+            credit: "4",
+            name: "Physics for Scientists and Engineers"
+        },
+        {
+            code: "CHEM1002",
+            credit: "3",
+            name: "Chemistry Fundamentals"
+        },
+        {
+            code: "ENGL1010",
+            credit: "4",
+            name: "English Composition"
+        },
+        {
+            code: "HIST1201",
+            credit: "3",
+            name: "World History"
+        },
+        {
+            code: "PSYC1101",
+            credit: "3",
+            name: "Introduction to Psychology"
+        },
+        {
+            code: "ARTS1303",
+            credit: "2",
+            name: "Introduction to Fine Arts"
+        },
+        {
+            code: "BIOL2101",
+            credit: "4",
+            name: "Biology: Principles and Exploration"
+        },
+        {
+            code: "ECON2202",
+            credit: "5",
+            name: "Microeconomics"
+        },
+        {
+            code: "MUSC1404",
+            credit: "2",
+            name: "Music Appreciation"
+        },
+        {
+            code: "SOCY2305",
+            credit: "3",
+            name: "Introduction to Sociology"
+        }
+        // Toplamda 12 ders eklenecek
+    ];
+
+    if (lectures.length === 0) {
+        // part off adding course
+        console.log("qqq");
+        // Döngü ile her bir ders için Course nesnesi oluşturup diziye ekleme
+        for (var i = 0; i < coursesAuto.length; i++) {
+            var course = coursesAuto[i];
+            console.log(course);
+            var newLecture = new Lecture(course.code, course.name, course.credit);
+            lectures.push(newLecture);
+            //Add the course to local repository
+            addLectureToLocalStorage(newLecture);
+        }
+    }
+    else {
+        return;
+    }
+
 }
 
