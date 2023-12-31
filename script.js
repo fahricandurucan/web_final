@@ -153,7 +153,7 @@ function changeContent(content) {
         succededStudentHome.style.display = "none";
         studentGpaContainer.style.display = "none";
         studentTableContainer.style.display = 'none';
-
+        resetExtras();
     } else if (content === 'Students') {
         populateLectureDropdown();
 
@@ -168,6 +168,7 @@ function changeContent(content) {
 
         // Update the student list on the screen
         updateStudentList()
+        resetExtras();
     }
 
     else if (content === 'Lectures') {
@@ -202,6 +203,7 @@ function changeContent(content) {
         studentGpaContainer.style.display = "none";
         studentTableContainer.style.display = 'none';
         updateLectureList()
+        resetExtras();
     }
     else if (content === 'Extras') {
         populateLectureDropdownHome();
@@ -720,6 +722,15 @@ function populateLectureDropdownHomeSucceded() {
     });
 }
 
+function resetExtras() {
+    var failedStudentsList = document.getElementById('failedStudentsList');
+    failedStudentsList.innerHTML = '';
+    var succededStudentsList = document.getElementById('succededStudentsList');
+    succededStudentsList.innerHTML = '';
+    var studentListGpa = document.getElementById('studentListHome');
+    studentListGpa.innerHTML = '';
+}
+
 //For student gpa in the extra section of the function that adds courses to the drop-down menu
 function populateLectureDropdownHomeStudents() {
     var courseSelect = document.getElementById('selectStudentHome');
@@ -752,7 +763,7 @@ function getStudentsListForHome() {
 
 // Function showing students' GPAs
 function displayStudentsGpa(studentID) {
-    var succededStudentsList = document.getElementById('studentListHome');
+    var studentListGpa = document.getElementById('studentListHome');
     var student = students.find(student => student.id === studentID);
     var gpa = 0.0;
     var credit = 0;
@@ -768,11 +779,11 @@ function displayStudentsGpa(studentID) {
     })
 
     gpa = total / credit;
-    succededStudentsList.innerHTML = '';
+    studentListGpa.innerHTML = '';
 
     var listItem = document.createElement('div');
     listItem.innerHTML = `<p>${student.name} ${student.surname} - ${gpa.toFixed(2)}</p>`;
-    succededStudentsList.appendChild(listItem);
+    studentListGpa.appendChild(listItem);
 }
 
 
