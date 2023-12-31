@@ -259,7 +259,6 @@ document.getElementById('addStudentButton').addEventListener('click', function (
     var studentGrade1Input = document.getElementById("grade1");
     var studentGrade2Input = document.getElementById("grade2");
     var studentLecturesInput = document.getElementById('studentLectures');
-    var studentList = document.getElementById('studentList');
 
     // Basic validation
     if (!studentIdInput.value || !studentNameInput.value || !studentSurnameInput.value || !studentGrade1Input.value
@@ -285,7 +284,10 @@ document.getElementById('addStudentButton').addEventListener('click', function (
         alert('Please select a lecture from the dropdown menu.');
         return;
     }
-
+    if (studentIdInput.value.length < 9) {
+        alert('Invalid ID. The student ID must be 9 digits.');
+        return;
+    }
     // Check if the student with the given ID already exists
     var existingStudent = findStudentById(parseInt(newStudentID.value));
     if (existingStudent) {
@@ -340,6 +342,7 @@ document.getElementById('addStudentButton').addEventListener('click', function (
         studentGrade1Input.value = '';
         studentGrade2Input.value = '';
         studentLecturesInput.value = '';
+        control = true;
     }
 });
 

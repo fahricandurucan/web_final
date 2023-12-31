@@ -363,6 +363,14 @@ select::-ms-expand {
     margin: 5px;
 }
 
+#studentGpaContainer select,
+#succededStudentHome select,
+#failedStudentHome select {
+    width: 250px;
+    text-align: center;
+}
+
+
 #studentGpaContainer:hover {
     background-color: #fcff3d;
     transform: scale(1.05);
