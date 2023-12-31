@@ -375,6 +375,10 @@ document.getElementById('addLectureButton').addEventListener('click', function (
         alert('Please enter a valid positive numeric value for Lecture Credit.');
         return;
     }
+    if (parseInt(lectureCreditInput.value) > 8) {
+        alert('Lecture credit cannot exceed 8.');
+        return;
+    }
 
     // Get information received from the user
     var lectureCode = lectureCodeInput.value;
@@ -997,7 +1001,7 @@ function addStudentAuto() {
             grade1: 92,
             grade2: 87,
             lectures: "PHYS1003",
-            letterGrade: "A"
+            letterGrade: "B"
         },
         {
             id: "200709013",
@@ -1006,16 +1010,16 @@ function addStudentAuto() {
             grade1: 80,
             grade2: 95,
             lectures: "CHEM1002",
-            letterGrade: "A"
+            letterGrade: "B"
         },
         {
             id: "200709014",
             name: "David",
             surname: "Brown",
-            grade1: 78,
-            grade2: 88,
+            grade1: 50,
+            grade2: 20,
             lectures: "ENGL1010",
-            letterGrade: "B"
+            letterGrade: "F"
         },
         {
             id: "200709015",
@@ -1033,16 +1037,16 @@ function addStudentAuto() {
             grade1: 88,
             grade2: 85,
             lectures: "PSYC1101",
-            letterGrade: "A"
+            letterGrade: "B"
         },
         {
             id: "200709017",
             name: "Olivia",
             surname: "Moore",
-            grade1: 80,
-            grade2: 78,
+            grade1: 60,
+            grade2: 65,
             lectures: "ARTS1303",
-            letterGrade: "B"
+            letterGrade: "D"
         },
         {
             id: "200709018",
@@ -1067,9 +1071,9 @@ function addStudentAuto() {
             name: "Mehmet",
             surname: "Koç",
             grade1: 85,
-            grade2: 88,
+            grade2: 70,
             lectures: "MUSC1404",
-            letterGrade: "B"
+            letterGrade: "C"
         },
         {
             id: "200709021",
@@ -1084,10 +1088,10 @@ function addStudentAuto() {
             id: "200709022",
             name: "Emre",
             surname: "Şahin",
-            grade1: 85,
-            grade2: 88,
+            grade1: 10,
+            grade2: 50,
             lectures: "SOCY2305",
-            letterGrade: "B"
+            letterGrade: "F"
         },
         {
             id: "200709023",
@@ -1096,7 +1100,7 @@ function addStudentAuto() {
             grade1: 80,
             grade2: 92,
             lectures: "MUSC1404",
-            letterGrade: "A"
+            letterGrade: "B"
         },
         {
             id: "200709024",
@@ -1111,10 +1115,10 @@ function addStudentAuto() {
             id: "200709025",
             name: "Büşra",
             surname: "Güler",
-            grade1: 78,
-            grade2: 90,
+            grade1: 50,
+            grade2: 32,
             lectures: "BIOL2101",
-            letterGrade: "A"
+            letterGrade: "F"
         },
         {
             id: "200709025",
@@ -1130,33 +1134,33 @@ function addStudentAuto() {
             name: "Zehra",
             surname: "Yılmaz",
             grade1: 90,
-            grade2: 78,
+            grade2: 100,
             lectures: "PSYC1101",
-            letterGrade: "B"
+            letterGrade: "A"
         },
         {
             id: "200709027",
             name: "Kerem",
             surname: "Kurtuluş",
-            grade1: 82,
-            grade2: 92,
+            grade1: 61,
+            grade2: 22,
             lectures: "CENG1007",
-            letterGrade: "A"
+            letterGrade: "F"
         },
         {
             id: "200709028",
             name: "İrem",
             surname: "Aydos",
-            grade1: 88,
-            grade2: 85,
+            grade1: 58,
+            grade2: 25,
             lectures: "HIST1201",
-            letterGrade: "B"
+            letterGrade: "F"
         },
         {
             id: "200709029",
             name: "Serkan",
             surname: "Kurt",
-            grade1: 75,
+            grade1: 96,
             grade2: 94,
             lectures: "ENGL1010",
             letterGrade: "A"
@@ -1166,25 +1170,25 @@ function addStudentAuto() {
             name: "Eylül",
             surname: "Şahbaz",
             grade1: 92,
-            grade2: 80,
+            grade2: 50,
             lectures: "CHEM1002",
-            letterGrade: "A"
+            letterGrade: "D"
         },
         {
             id: "200709031",
             name: "Mert",
             surname: "Acar",
-            grade1: 85,
-            grade2: 78,
+            grade1: 50,
+            grade2: 70,
             lectures: "PHYS1003",
-            letterGrade: "B"
+            letterGrade: "D"
         },
         {
             id: "200709032",
             name: "Nazlı",
             surname: "Özdemir",
             grade1: 94,
-            grade2: 88,
+            grade2: 99,
             lectures: "MATH2001",
             letterGrade: "A"
         },
