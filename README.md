@@ -1,6 +1,6 @@
 # Web Final Project -> Student Course System
-Deploy Link = https://fahricandurucan.github.io/web_final
-Github Link = https://github.com/fahricandurucan/web_final
+- Deploy Link = https://fahricandurucan.github.io/web_final
+- Github Link = https://github.com/fahricandurucan/web_final
 ## Description
 This site is about student and course management system.
 ## Requirements
