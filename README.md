@@ -24,4 +24,6 @@ This site is about student and course management system.
 
 ## Structure Of Code
 I used html5, css and javascript while making this project. My html codes are in the index.html file, my css codes are in the style.css file and my javascript codes are in the script.js file.
+
+![Screenshot_10](https://github.com/fahricandurucan/web_final/assets/119004635/4816c766-a3f3-458c-9863-3e6c5b62f84f)
  
