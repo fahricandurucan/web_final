@@ -363,6 +363,7 @@ select::-ms-expand {
     margin: 5px;
 }
 
+
 #studentGpaContainer select,
 #succededStudentHome select,
 #failedStudentHome select {
@@ -385,6 +386,7 @@ select::-ms-expand {
     background-color: #3ef5af;
     transform: scale(1.05);
 }
+
 
 /* Update Button in both tables */
 .lectureTable .update-button,

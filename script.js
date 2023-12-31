@@ -1277,6 +1277,6 @@ function addLectureAuto() {
     else {
         return;
     }
-
 }
+
 
